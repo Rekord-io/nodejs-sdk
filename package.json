@@ -1,5 +1,5 @@
 {
-    "name": "@rekord-io/rekord-sdk",
+    "name": "@rekord-io/nodejs-sdk",
     "version": "1.0.0",
     "description": "SDK for RekordAPI",
     "main": "dist/index.js",
