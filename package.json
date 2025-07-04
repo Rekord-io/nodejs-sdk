@@ -1,0 +1,32 @@
+{
+    "name": "@rekord-io/rekord-sdk",
+    "version": "1.0.0",
+    "description": "SDK for RekordAPI",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/"
+    },
+    "scripts": {
+        "build": "tsc",
+        "test": "jest",
+        "prepublishOnly": "npm run build",
+        "prepare": "npm run build",
+        "regenerate-client": "openapi-generator-cli generate -i schema/swagger-output.json -g typescript-axios -o src/rekord-client"
+    },
+    "keywords": [
+        "typescript"
+    ],
+    "license": "ISC",
+    "dependencies": {
+        "openapitools": "github:openapitools/openapi-generator-cli"
+    },
+    "devDependencies": {
+        "@types/jest": "^29.5.14",
+        "@types/node": "^22.14.0",
+        "jest": "^29.7.0",
+        "ts-jest": "^29.3.4",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.x.x"
+    }
+}
