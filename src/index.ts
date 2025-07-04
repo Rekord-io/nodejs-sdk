@@ -1,4 +1,4 @@
-import { Configuration, ConfigurationParameters, DefaultApi, RekordPayloadTypeEnum } from "./rekord-output";
+import { Configuration, ConfigurationParameters, DefaultApi, RekordPayloadTypeEnum } from "./rekordClient";
 import axios, {    
     InternalAxiosRequestConfig 
 } from 'axios';

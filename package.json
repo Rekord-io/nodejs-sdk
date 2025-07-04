@@ -12,7 +12,7 @@
         "test": "jest",
         "prepublishOnly": "npm run build",
         "prepare": "npm run build",
-        "regenerate-client": "openapi-generator-cli generate -i schema/swagger-output.json -g typescript-axios -o src/rekord-output"
+        "regenerate-client": "openapi-generator-cli generate -i schema/swagger-output.json -g typescript-axios -o src/rekordClient"
     },
     "keywords": [
         "typescript"
