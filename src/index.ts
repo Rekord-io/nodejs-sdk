@@ -2,6 +2,7 @@ export * from "./rekord-client";
 
 import { Configuration, ConfigurationParameters, DefaultApi } from "./rekord-client";
 import axios, {    
+    AxiosError,
     InternalAxiosRequestConfig 
 } from 'axios';
 
@@ -30,6 +31,29 @@ export class RekordApiClient {
             (error) => {
                 console.error("Request Error (Interceptor):", error);
                 return Promise.reject(error);
+            }
+        );
+
+        customAxiosInstance.interceptors.response.use(
+            // The first function handles successful responses (2xx)
+            (response) => response, // Just pass it through
+            
+            // The second function handles errors
+            (error: AxiosError) => {
+                const customError = {
+                message: "An error occurred while communicating with the Rekord API.",
+                status: error.response?.status,
+                responseData: error.response?.data,
+                requestUrl: error.config?.url,
+                requestMethod: error.config?.method,
+                originalError: error,
+                };
+                
+                // Log it for debugging if you want
+                console.error("[SDK Error Interceptor]", customError);
+                
+                // Reject with the structured custom error so the user can catch it
+                return Promise.reject(customError);
             }
         );
 
