@@ -1,13 +1,14 @@
 export * from "./rekord-client";
 
-import { Configuration, ConfigurationParameters, DefaultApi } from "./rekord-client";
+import { ExtendedDefaultApi } from "./ExtendedDefaultApi";
+import { Configuration, ConfigurationParameters, DefaultApi, RekordPayloadTypeEnum, RekordRequest } from "./rekord-client";
 import axios, {    
     AxiosError,
     InternalAxiosRequestConfig 
 } from 'axios';
 
 export class RekordApiClient {
-    public readonly api: DefaultApi;
+    public readonly api: ExtendedDefaultApi;
 
     constructor(config: ConfigurationParameters = {}) {
         const configuration = new Configuration({
@@ -58,7 +59,6 @@ export class RekordApiClient {
         );
 
         // Pass the custom Axios instance to the DefaultApi constructor
-        this.api = new DefaultApi(configuration, config.basePath, customAxiosInstance);
-    }
+        this.api = new ExtendedDefaultApi(configuration, config.basePath, customAxiosInstance);        
+    }   
 }
-
