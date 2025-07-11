@@ -7,8 +7,6 @@ import axios, {
     InternalAxiosRequestConfig 
 } from 'axios';
 
-import * as fs from 'fs';
-
 export class RekordApiClient {
     public readonly api: ExtendedDefaultApi;
 
